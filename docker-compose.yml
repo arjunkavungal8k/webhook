@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  n8n:
+    image: n8n
+    ports:
+      - "5678:5678"
+
+  streamlit:
+    ports:
+      - "8501:8501"
