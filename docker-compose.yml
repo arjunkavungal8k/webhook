@@ -1,5 +1,8 @@
 version: "3.9"
 
+ports:
+  - "5678:5678"
+
 services:
 
   postgres:
