@@ -3,10 +3,14 @@ import requests
 import json
 from datetime import datetime
 import os
+import urllib3
+
 
 
 
 # Page configuration
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 st.set_page_config(
     page_title="n8n Workflow Manager",
     page_icon="⚙️",
@@ -122,7 +126,7 @@ with tab2:
         try:
             headers = {"Content-Type": "application/json"}
             response = requests.post(
-                "http://localhost:5678/webhook/c8615654-34f3-400a-a4e4-db90161dda20"
+                "http://marna-petroleous-tenley.ngrok-free.dev/webhook/c8615654-34f3-400a-a4e4-db90161dda20"
                 , json={"data": '5'})
                 
             if response.status_code in [200, 201]:
@@ -134,8 +138,8 @@ with tab2:
             else:
                 st.error(f"❌ Failed: {response.status_code}")
                 st.write(response.text)
-        except requests.exceptions.ConnectionError:
-            st.error("❌ Cannot connect to n8n at localhost:5678")
+        except requests.exceptions.ConnectionError as e:
+            st.error(e)
             st.warning("""
             **n8n is not running!**
                 
