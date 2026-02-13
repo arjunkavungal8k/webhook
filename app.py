@@ -17,17 +17,6 @@ st.title("Sentiment analysis tool")
 st.markdown("Manage and execute n8n workflow for sentiment analysis directly from Streamlit")
 st.markdown("---")
 
-# Tabs for different functionalities
-tab1, tab2, tab3, tab4 = st.tabs([
-    "Workflows", 
-    "Execute Workflow", 
-    "Executions", 
-    "Settings"
-])
-
-
-# Tab 2: Execute Workflow
-with tab2:
     st.subheader("Execute Workflow via Webhook")
     
     # Quick Execute Button
