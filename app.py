@@ -29,7 +29,7 @@ Activate the workflow:
 
 
 
-user_input = st.text_input("Enter your name:", placeholder="Type here...")
+user_input = st.text_input("Enter company you want to find sentiment of:", placeholder="Type here...")
 if st.button("Analyze Sentiments", key="as", type="primary"):
     try:
         if not user_input:
