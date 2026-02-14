@@ -23,22 +23,17 @@ st.subheader("Execute Workflow via Webhook")
 st.markdown("**Quick Execute**")
 
 st.warning("""
-**Before clicking the button:**
-
-In n8n (http://localhost:5678):
-1. Open your workflow
-2. Click the **"Execute Workflow"** button on the Webhook trigger node (blue button on canvas)
-3. Immediately come back and click the button below
-
-OR activate the workflow:
-- Click the **"Activate"** toggle (top-right) to make it always available
+Activate the workflow:
+- Click the **"Analyze Sentiments"** toggle (top-right) to make it always available
 """)
 
 
 
-
+user_input = st.text_input("Enter your name:", placeholder="Type here...")
 if st.button("Analyze Sentiments", key="as", type="primary"):
     try:
+        if !user_input:
+            raise ValueError("input must not be empty")
         headers = {"Content-Type": "application/json"}
         response = requests.post(
             "http://marna-petroleous-tenley.ngrok-free.dev/webhook/c8615654-34f3-400a-a4e4-db90161dda20"
