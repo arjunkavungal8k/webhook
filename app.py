@@ -32,7 +32,7 @@ Activate the workflow:
 user_input = st.text_input("Enter your name:", placeholder="Type here...")
 if st.button("Analyze Sentiments", key="as", type="primary"):
     try:
-        if !user_input:
+        if not user_input:
             raise ValueError("input must not be empty")
         headers = {"Content-Type": "application/json"}
         response = requests.post(
